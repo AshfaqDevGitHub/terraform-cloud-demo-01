@@ -4,7 +4,7 @@ resource "aws_instance" "my-ec2-vm" {
   instance_type = var.instance_type
   count = 3
   key_name      = "terraform-key"
-  user_data = file("apache-install.sh")  
+  user_data = file("apacheInstall.sh")  
   vpc_security_group_ids = [aws_security_group.vpc-ssh.id, aws_security_group.vpc-web.id]
   tags = {
     "Name" = "Terraform-Cloud-${count.index}"
